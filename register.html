@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC OF COMPANY</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('assets/images/register_bg.png'); /* Update the path to the image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .header-img {
+            width: 100%;
+        }
+
+        form {
+            max-width: 100%;
+            margin: 0 auto 100px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .director-form {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .director-form label {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-12">
+                <a href="index.html">
+                    <img class="header-img" src="assets/images/register_logo.png" alt="Header Image"> <!-- Add this line for the header image -->
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="type_of_company">Type of Company:</label>
+                    <select id="type_of_company" name="type_of_company" required>
+                        <option value=""></option>
+                        <option value="Proprietor">Proprietor</option>
+                        <option value="Partner">Partner</option>
+                        <option value="Private Limited">Private Limited</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Limited Liability Partnership">Limited Liability Partnership</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="name_of_entity">Name of Entity:</label>
+                    <input type="text" id="name_of_entity" name="name_of_entity" pattern="[A-Za-z ]+" title="Only characters are allowed" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="date_of_incorporation">Date of Incorporation:</label>
+                    <input type="date" id="date_of_incorporation" name="date_of_incorporation" required>
+                    <label for="file_incorporation">Incorporation Certificate:</label>
+                    <input type="file" id="file_incorporation" name="file_incorporation" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="pan_number">PAN Number:</label>
+                    <input type="text" id="pan_number" name="pan_number" pattern="[A-Za-z0-9]{10}" title="Should be 10 characters/digits" required>
+                    <label for="file_pan">Upload PANCARD:</label>
+                    <input type="file" id="file_pan" name="file_pan" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="gstin">GSTIN:</label>
+                    <input type="text" id="gstin" name="gstin" pattern="[A-Za-z0-9]{13}" title="Should be 13 characters/digits" required>
+                    <input type="file" id="file_gstin" name="file_gstin" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="bank_details">Bank Details:</label>
+                    <input type="text" id="bank_details" name="bank_details" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="ifsc_code">IFSC Code:</label>
+                    <input type="text" id="ifsc_code" name="ifsc_code" required>
+                    <input type="file" id="file_cancelled_cheque" name="file_cancelled_cheque" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="registered_address">Registered Address:</label>
+                    <textarea id="registered_address" name="registered_address" required></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="communication_address">Communication Address:</label>
+                    <textarea id="communication_address" name="communication_address" required></textarea>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="pincode">Pincode:</label>
+                    <input type="text" id="pincode" name="pincode" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="text" id="phone_number" name="phone_number" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-12">
+                    <label for="number_of_directors">Number of Directors:</label>
+                    <select id="number_of_directors" name="number_of_directors" required>
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 col-md-6 col-12"></div>
+            </div>
+
+            <!-- Sub forms for each director -->
+            <div id="directors_info"></div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        // Script to dynamically generate sub forms for each director
+        document.getElementById('number_of_directors').addEventListener('change', function() {
+            const numDirectors = parseInt(this.value);
+            const directorsInfo = document.getElementById('directors_info');
+            directorsInfo.innerHTML = '';
+
+            for (let i = 1; i <= numDirectors; i++) {
+                const directorForm = document.createElement('div');
+                directorForm.classList.add('director-form');
+                directorForm.innerHTML = `
+                    <h3>Director ${i}</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="din_${i}">DIN Number:</label>
+                            <input type="text" id="din_${i}" name="din_${i}" required>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="name_${i}">Name:</label>
+                            <input type="text" id="name_${i}" name="name_${i}" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="address_${i}">Address:</label>
+                            <textarea id="address_${i}" name="address_${i}" required></textarea>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="pan_${i}">PAN Number:</label>
+                            <input type="text" id="pan_${i}" name="pan_${i}" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="file_pan_${i}">Upload PAN File:</label>
+                            <input type="file" id="file_pan_${i}" name="file_pan_${i}" required>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="aadhar_${i}">Aadhar Number:</label>
+                            <input type="text" id="aadhar_${i}" name="aadhar_${i}" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="file_aadhar_${i}">Upload Aadhar File:</label>
+                            <input type="file" id="file_aadhar_${i}" name="file_aadhar_${i}" required>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="mobile_${i}">Mobile Number:</label>
+                            <input type="text" id="mobile_${i}" name="mobile_${i}" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-12">
+                            <label for="email_${i}">Email Address:</label>
+                            <input type="email" id="email_${i}" name="email_${i}" required>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-12"></div>
+                    </div>
+                `;
+                directorsInfo.appendChild(directorForm);
+            }
+        });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

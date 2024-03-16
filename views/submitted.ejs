@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submitted Data</title>
+</head>
+<body>
+  <h1>Submitted Data</h1>
+  <h2>Company KYC Information:</h2>
+  <ul>
+    <li><strong>Type of Company:</strong> <%= formData.type_of_company %></li>
+    <li><strong>Name of Entity:</strong> <%= formData.name_of_entity %></li>
+    <!-- Add more fields as needed -->
+  </ul>
+
+  <h2>Director Details:</h2>
+  <% directorsData.forEach(function(director, index) { %>
+    <h3>Director <%= index + 1 %>:</h3>
+    <ul>
+      <li><strong>DIN Number:</strong> <%= director.DIN %></li>
+      <li><strong>Name:</strong> <%= director.name %></li>
+      <!-- Add more fields as needed -->
+    </ul>
+  <% }); %>
+
+  <h2>Uploaded Files:</h2>
+  <ul>
+    <li><a href="/uploads/incorporation_certificate.pdf" target="_blank">Incorporation Certificate</a></li>
+    <li><a href="/uploads/pan_card.pdf" target="_blank">PAN Card</a></li>
+    <li><a href="/uploads/gstin_certificate.pdf" target="_blank">GSTIN Certificate</a></li>
+    <li><a href="/uploads/cancelled_cheque.pdf" target="_blank">Cancelled Cheque</a></li>
+  </ul>
+</body>
+</html>
